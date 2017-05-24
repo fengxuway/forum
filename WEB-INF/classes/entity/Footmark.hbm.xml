@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 14:45:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.Footmark" table="FOOTMARK">
+		<comment>足迹表，记录用户访问过的主题</comment>
+		<id name="foot_id" type="int">
+			<column name="FOOT_ID" />
+			<generator class="native" />
+		</id>
+		<property name="foot_time" type="java.util.Date">
+			<column name="FOOT_TIME" >
+				<comment>访问时间</comment>
+			</column>
+		</property>
+		<many-to-one name="user_id" class="entity.User" lazy="false">
+			<column name="USER_ID" >
+				<comment>用户ID</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="sub_id" class="entity.Subject" lazy="false">
+			<column name="SUB_ID" >
+				<comment>主题ID</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

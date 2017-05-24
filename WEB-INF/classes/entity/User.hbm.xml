@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 14:45:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.User" table="USER">
+		<comment>用户表</comment>
+		<id name="user_id" type="java.lang.String" length="10">
+			<column name="USER_ID" />
+			<generator class="assigned" />
+		</id>
+		
+		<property name="userid_encode" type="java.lang.String">
+			<column name="USERID_ENCODE" >
+				<comment>用户ID的utf8编码</comment>
+			</column>
+		</property>
+		<property name="password" type="java.lang.String">
+			<column name="PASSWORD" >
+				<comment>用户密码</comment>
+			</column>
+		</property>
+		<property name="uuid" type="java.lang.String" length="32">
+			<column name="UUID" >
+				<comment>用户UUID</comment>
+			</column>
+		</property>
+		<property name="email" type="java.lang.String" length="50">
+			<column name="EMAIL" >
+				<comment>邮箱</comment>
+			</column>
+		</property>
+		<property name="sex" type="boolean">
+			<column name="SEX" >
+				<comment>性别</comment>
+			</column>
+		</property>
+		<property name="active_time" type="java.lang.Long">
+			<column name="ACTIVE_TIME" >
+				<comment>激活时间（同意前为注册时间，同意后为一个礼拜时间）</comment>
+			</column>
+		</property>
+		<property name="sign" type="text">
+			<column name="SIGN" >
+				<comment>签名档</comment>
+			</column>
+		</property>
+		<property name="photo" type="java.lang.String">
+			<column name="PHOTO" >
+				<comment>头像</comment>
+			</column>
+		</property>
+		<property name="if_dynamic" type="boolean">
+			<column name="IF_DYNAMIC" >
+				<comment>是否公开自己的动态</comment>
+			</column>
+		</property>
+		<property name="if_attention" type="boolean">
+			<column name="IF_ATTENTION" >
+				<comment>是否允许被关注</comment>
+			</column>
+		</property>
+		<property name="exp" type="int">
+			<column name="EXP" >
+				<comment>经验值</comment>
+			</column>
+		</property>
+        <property name="identity" type="int">
+        	<column name="IDENTITY">
+        		<comment>申请注册状态-15，同意申请但未激活 -5， 激活成功  5。 0  封禁用户，1-9 普通用户  5，101-999 版主（减去100为管理的版块），1000 管理员</comment>
+        	</column>
+        </property>
+        <property name="name" type="java.lang.String">
+        	<column name="NAME">
+        		<comment>真实姓名</comment>
+        	</column>
+        </property>
+        <property name="student_id" type="java.lang.String">
+        	<column name="STUDENT_ID">
+        		<comment>学号</comment>
+        	</column>
+        </property>
+		<many-to-one name="rank" class="entity.Rank" lazy="false">
+			<column name="RANK">
+				<comment>等级</comment>
+			</column>
+		</many-to-one>
+        <many-to-one name="college" class="entity.College" lazy="false">
+        	<column name="COLLEGE">
+        		<comment>所在学院</comment>
+        	</column>
+        </many-to-one>
+        <many-to-one name="major" class="entity.Major" lazy="false">
+        	<column name="MAJOR">
+        		<comment>专业</comment>
+        	</column>
+        </many-to-one>
+        <set name="subjects" table="SUBJECT" inverse="true" lazy="true" cascade="all-delete-orphan">
+            <key>
+                <column name="AUTHOR" />
+            </key>
+            <one-to-many class="entity.Subject" />
+        </set>
+        <set name="replys" table="REPLY" inverse="true" lazy="true" cascade="all-delete-orphan">
+            <key>
+                <column name="USER_ID" />
+            </key>
+            <one-to-many class="entity.Reply" />
+        </set>
+        <set name="informations" table="INFORMATION" inverse="true" lazy="true" cascade="all-delete-orphan">
+            <key>
+                <column name="USER_ID" />
+            </key>
+            <one-to-many class="entity.Information" />
+        </set>
+        <set name="footmarks" table="FOOTMARK" inverse="true" lazy="true" cascade="all-delete-orphan">
+            <key>
+                <column name="USER_ID" />
+            </key>
+            <one-to-many class="entity.Footmark" />
+        </set>
+        <set name="secretDialogA" table="SECRETDIALOG" inverse="true" lazy="true"  cascade="all-delete-orphan">
+            <key>
+                <column name="USERA" />
+            </key>
+            <one-to-many class="entity.SecretDialog" />
+        </set>
+        <set name="secretDialogB" table="SECRETDIALOG" inverse="true" lazy="true"  cascade="all-delete-orphan">
+            <key>
+                <column name="USERB" />
+            </key>
+            <one-to-many class="entity.SecretDialog" />
+        </set>
+        <set name="atteMe" table="ATTENTION" inverse="true" lazy="true"  cascade="all-delete-orphan">
+            <key>
+                <column name="ATTE_BYUSERID" />
+            </key>
+            <one-to-many class="entity.Attention" />
+        </set>
+        <set name="MyAtte" table="ATTENTION" inverse="true" lazy="true"  cascade="all-delete-orphan">
+            <key>
+                <column name="ATTE_USERID" />
+            </key>
+            <one-to-many class="entity.Attention" />
+        </set>
+    </class>
+</hibernate-mapping>

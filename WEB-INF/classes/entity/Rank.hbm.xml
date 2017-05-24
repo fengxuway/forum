@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 14:45:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.Rank" table="RANK">
+		<comment>等级表，存储等级及其背景图片、升至下一级所需的经验值</comment>
+		<id name="rank_id" type="int">
+			<column name="RANK_ID" />
+			<generator class="native" />
+		</id>
+		<property name="grade" type="int">
+			<column name="GRADE" >
+				<comment>等级</comment>
+			</column>
+		</property>
+		<property name="exp" type="int">
+			<column name="EXP" >
+				<comment>升至下一级所需的经验值</comment>
+			</column>
+		</property>
+		<property name="rank_name" type="java.lang.String">
+			<column name="RANK_NAME" >
+				<comment>等级代号</comment>
+			</column>
+		</property>
+		<property name="img" type="java.lang.String">
+			<column name="IMG" >
+				<comment>等级背景</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

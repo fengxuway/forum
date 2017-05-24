@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-5-29 19:29:42 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="entity.Weather" table="WEATHER">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="city" type="java.lang.String">
+            <column name="CITY" />
+        </property>
+        <property name="degree" type="java.lang.String">
+            <column name="DEGREE" />
+        </property>
+        <property name="climate" type="java.lang.String">
+            <column name="CLIMATE" />
+        </property>
+        <property name="image" type="java.lang.String">
+            <column name="IMAGE" />
+        </property>
+        <property name="wind" type="java.lang.String">
+            <column name="WIND" />
+        </property>
+        <property name="humidity" type="java.lang.String">
+            <column name="HUMIDITY" />
+        </property>
+        <property name="time" type="java.util.Date">
+            <column name="TIME" />
+        </property>
+    </class>
+</hibernate-mapping>

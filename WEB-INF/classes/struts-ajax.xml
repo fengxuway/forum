@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 指定Struts 2 配置文件的根目录 -->
+<struts>
+	
+	<package name="ajax"  extends="json-default" namespace="/ajax">
+		<!-- ajax请求通用全局结果 -->
+		<global-results>
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</global-results>
+		<action name="user_*" class="userAction" method="{1}"></action>
+		<action name="register_*" class="registerAction" method="{1}"></action>
+		<action name="p_*" class="pAjaxAction" method="{1}"></action>
+	</package>
+	
+	<package name="userAjax" extends="json-default" namespace="/userAjax">
+		<interceptors>
+			<interceptor name="userInterceptor" class="interceptor.UserInterceptor"></interceptor>
+			<interceptor-stack name="userInterceptorStack">
+				<interceptor-ref name="userInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="userInterceptorStack"></default-interceptor-ref>
+	
+		<global-results>
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</global-results>
+		
+		<action name="subject_*" class="subjectAction" method="{1}">
+			<result type="json">
+				<param name="includeProperties">msg</param>
+			</result>
+		</action>
+		
+		<action name="reply_*" class="replyAction" method="{1}">
+			<result type="json">
+				<param name="includeProperties">msgAjax, reply_id</param>
+			</result>
+		</action>
+		
+		<action name="personal_*" class="personalAjaxAction" method="{1}">
+		</action>
+		
+		<action name="secret" class="secretAjaxAction">
+		</action>
+	</package>
+	
+	
+	<package name="adminAjax"  extends="json-default" namespace="/adminAjax">
+		<!-- ajax请求通用全局结果 -->
+		<global-results>
+			<result type="json">
+				<param name="noCache">true</param>
+			</result>
+		</global-results>
+		
+		<action name="adminAjax_*" class="adminAjaxAction" method="{1}"></action>
+		
+		<action name="iframeAjax" class="iframeAjaxAction"></action>
+	</package>
+	
+
+	
+	
+</struts>

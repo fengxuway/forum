@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-3-7 11:45:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.Major" table="MAJOR">
+		<comment>专业表</comment>
+		<id name="major_id" type="int">
+			<column name="MAJOR_ID" />
+			<generator class="native" />
+		</id>
+		<property name="major_name" type="java.lang.String">
+			<column name="MAJOR_NAME" >
+				<comment>专业名称</comment>
+			</column>
+		</property>
+		<many-to-one name="college" class="entity.College" fetch="join">
+			<column name="COLLEGE" >
+				<comment>从属学院</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

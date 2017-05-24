@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+  <description>我的标签库</description>
+  <display-name>Fengxu Core</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>fx</short-name>
+  <uri>http://www.fengxu.cn/fxtag</uri>
+
+
+  <tag>
+    <description>用于字符串的正则表达式匹配及字符串的截取</description>
+    <name>regsub</name>
+    <tag-class>util.MyStringTag</tag-class>
+    <body-content>scriptless</body-content>
+    
+    <attribute>
+    	<name>value</name>
+    	<required>true</required>
+    	<fragment>true</fragment>
+    	<rtexprvalue>true</rtexprvalue>  
+    </attribute>
+    <attribute>
+    	<name>regex</name>
+    	<required>true</required>
+    	<fragment>true</fragment>
+    </attribute>
+    <attribute>
+    	<name>replacement</name>
+    	<required>false</required>
+    	<fragment>true</fragment>
+    </attribute>
+    <attribute>
+    	<name>from</name>
+    	<required>false</required>
+    	<fragment>true</fragment>
+    </attribute>
+    <attribute>
+    	<name>to</name>
+    	<required>false</required>
+    	<fragment>true</fragment>
+    </attribute>    
+  </tag>
+
+ 
+</taglib>

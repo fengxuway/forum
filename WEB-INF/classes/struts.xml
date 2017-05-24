@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 指定Struts 2 配置文件的根目录 -->
+<struts>
+	<!-- 指定全局国际化资源文件 --> 
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	<include file="struts-ajax.xml"></include>
+	
+	<package name="root" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</global-results>
+		
+		<action name="register_*" class="registerAction" method="{1}">
+			<result>/WEB-INF/content/register.jsp</result>
+		</action>
+		<action name="register_validateCW" class="registerAction" method="validateCW">
+			<result type="redirectAction" name="success">
+				<param name="actionName">register</param>
+				<param name="req">32</param>
+			</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">register</param>
+				<param name="req">31</param>
+				<param name="email">${email}</param>
+			</result>
+		</action>
+		<action name="quit" class="indexAction" method="quit">
+			<result type="redirectAction">index</result>
+		</action>
+		<action name="register_updatePswd" class="registerAction" method="updatePswd">
+			<result type="redirectAction">register?req=33</result>
+		</action>
+		
+		<action name="index" class="indexAction">
+			<result>/WEB-INF/content/index.jsp</result>
+		</action>
+		<action name="list" class="listAction">
+			<result>/WEB-INF/content/list.jsp</result>
+		</action>
+		<action name="single" class="singleAction">
+			<result>/WEB-INF/content/single.jsp</result>
+		</action>
+		<action name="p" class="pAction">
+			<result name="success">/WEB-INF/content/p.jsp</result>
+			<result name="self" type="redirectAction">user/personal?r=21</result>
+		</action>
+		<action name="backup" class="backupAction" >
+			<result>/WEB-INF/content/admin/admin.jsp</result>
+		</action>
+		
+		<action name="recovery" class="recoveryAction"></action>
+		
+		<action name="*">
+			<result>/WEB-INF/content/{1}.jsp</result>
+		</action>	
+		
+	</package>
+	
+	<!-- 用户请求内容 -->
+	<package name="user" extends="struts-default" namespace="/user">
+		
+		<interceptors>
+			<interceptor name="userInterceptor" class="interceptor.UserInterceptor"></interceptor>
+			<interceptor-stack name="userInterceptorStack">
+				<interceptor-ref name="userInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="userInterceptorStack"></default-interceptor-ref>
+	
+		<action name="*">
+			<result>/WEB-INF/content/user/{1}.jsp</result>
+		</action>
+		
+		<action name="personal" class="personalAction">
+			<result name="success">/WEB-INF/content/user/personal.jsp</result>
+			<result name="error" type="redirectAction">../index</result>
+		</action>
+		<!-- 退出Action -->
+		<action name="quit" class="personalAction" method="quit">
+			<result type="redirectAction">../index</result>
+		</action>
+		<action name="secret" class="secretAction">
+			<result name="success">/WEB-INF/content/user/secret.jsp</result>
+			<result name="error" type="redirectAction">../index</result>
+		</action>
+		<action name="publishNewSecret" class="secretAction" method="publishNewSecret">
+			<result name="success" type="redirectAction">secret</result>
+			<result name="error" type="redirectAction">../index</result>
+		</action>
+		
+		<!-- 更改用户个人数据的Action -->
+		<action name="updateMaterial" class="personalUpdateAction">
+			<param name="savePath">/images/head_img</param>
+			<result name="success" type="redirectAction">
+				<param name="actionName">personal</param>
+				<param name="r">41</param>
+				<param name="updateMsg">${updateMsg}</param>
+			</result>
+			<result name="error" type="redirectAction">personal?r=41</result>
+		</action>
+		
+	</package>
+	
+	<!-- 管理员请求内容 -->
+	<package name="admin" extends="struts-default" namespace="/admin">
+		<interceptors>
+			<interceptor name="adminInterceptor" class="interceptor.AdminInterceptor"></interceptor>
+			<interceptor-stack name="adminInterceptorStack">
+				<interceptor-ref name="adminInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="adminInterceptorStack"></default-interceptor-ref>
+		
+		<default-action-ref name="admin"></default-action-ref>
+		<action name="admin">
+			<result name="moder" type="chain">moder</result>
+			<result name="super" type="chain">super</result>
+			<result name="error" type="redirectAction">../error</result>
+		</action>
+		<action name="moder" class="moderAction">
+			<result>/WEB-INF/content/admin/moder.jsp</result>
+		</action>
+		<action name="super" class="adminAction">
+			<result>/WEB-INF/content/admin/super.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 管理员iframe -->
+	<package name="iframe" extends="admin" namespace="/admin/iframe">
+		<action name="*" class="iframeAction" method="{1}">
+			<result name="success">/WEB-INF/content/admin/iframe/{1}.jsp</result>
+			<result name="error" type="redirectAction">../../error</result>
+		</action>
+	</package>
+	
+</struts>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="GBK"?>
+<project name="quartz" basedir="." default="">
+	<property name="src" value="../src"/>
+	<property name="dest" value="WEB-INF/classes"/>
+	<property name="lib" value="WEB-INF/lib"/>
+	<property name="tomcatLib" value="D:\tomcat\lib"/>
+	<property name="javaLib" value="D:\Program Files\Java\jdk1.7.0_07\jre\lib"/>
+
+	<path id="classpath">
+		<fileset dir="${lib}">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${javaLib}">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${tomcatLib}">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="E:\software\eclipse\eclipse-juno-SR1\plugins\org.junit_4.10.0.v4_10_0_v20120426-0900">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="E:\software\eclipse\eclipse-juno-SR1\plugins">
+			<include name="org.hamcrest.core_1.1.0.v20090501071000.jar"/>
+		</fileset>
+		<pathelement path="${dest}"/>
+	</path>
+
+	<target name="compile" description="Compile all source code">
+		<delete dir="${dest}"/>
+		<mkdir dir="${dest}"/>
+		<copy todir="${dest}">
+			<fileset dir="${src}">
+				<exclude name="**/*.java"/>
+			</fileset>		
+		</copy>
+		<javac destdir="${dest}" debug="true" includeAntRuntime="false" 
+			deprecation="false" optimize="false" failonerror="true" 
+			encoding="UTF-8">
+			<src path="${src}"/>
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+
+	<target name="run" description="Run the main class" depends="compile">
+		<java classname="lee.MyQuartzServer" fork="yes" failonerror="true">
+			<classpath refid="classpath"/>
+		</java>
+	</target>
+
+</project>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 14:45:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.Information" table="INFORMATION">
+		<comment>用户信息表，包括回复我的、@我的、系统消息等</comment>
+		<id name="info_id" type="int">
+			<column name="INFO_ID" />
+			<generator class="native" />
+		</id>
+		<property name="type" type="int">
+			<column name="TYPE" >
+				<comment>消息类型消息类型(1个人发表主题，2个人发表回复，3回复个人的回复，4＠提到个人的回复，5被关注通知（系统）</comment>
+			</column>
+		</property>
+		<property name="info_content" type="java.lang.String">
+			<column name="INFO_CONTENT" >
+				<comment>消息内容</comment>
+			</column>
+		</property>
+		<property name="if_read" type="boolean">
+			<column name="IF_READ" >
+				<comment>是否已读</comment>
+			</column>
+		</property>
+		<property name="time" type="java.util.Date">
+			<column name="TIME" >
+				<comment>消息时间</comment>
+			</column>
+		</property>
+		<many-to-one name="user_id" class="entity.User" lazy="false" cascade="delete">
+			<column name="USER_ID" >
+				<comment>消息发送给用户</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="sub_id" class="entity.Subject" lazy="false" cascade="none">
+			<column name="SUB_ID" >
+				<comment>与某主题相关的消息（如主题被删除、加精等）</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="reply_id" class="entity.Reply" lazy="false" cascade="delete">
+			<column name="REPLY_ID" >
+				<comment>与某回复相关的消息（如回复的删除等）</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="user" class="entity.User" lazy="false" cascade="delete">
+			<column name="USER" >
+				<comment>与某消息有关的用户（如关注别人的用户）</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>	

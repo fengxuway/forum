@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 14:45:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.Attention" table="ATTENTION">
+		<comment>关注表</comment>
+		<id name="atte_id" type="int">
+			<column name="ATTE_ID" />
+			<generator class="native" />
+		</id>
+		<many-to-one name="atte_byuserid" class="entity.User" lazy="false">
+			<column name="ATTE_BYUSERID" >
+				<comment>关注人ID</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="atte_userid" class="entity.User" lazy="false">
+			<column name="ATTE_USERID" >
+				<comment>被关注人ID</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

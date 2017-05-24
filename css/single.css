@@ -1,0 +1,105 @@
+@charset "utf-8";
+/*section在single页面的部分*/
+#section_in_single { width: 738px; background: #fff; float: left; border: #ccc 1px solid; overflow: hidden; }
+/*论坛主题的标题部分*/
+#section_in_single header { height: 50px; line-height: 50px; padding-left: 20px; margin: 0; }
+#section_in_single header h4 { width: 555px; float: left; }
+#section_in_single header span, #title_detail span { width: 67px; height: 25px; line-height: 25px; text-align: center; font-size: 12px; display: block; background: url(../images/lz_only.png) no-repeat; float: right; margin-right: 10px; margin-top: 12px; cursor: pointer; }
+#section_in_single header span:hover , #title_detail span:hover{ background-position: 0 -25px; }
+#section_in_single header span:active ,  #title_detail span:active{ background-position: 0 -50px; }
+/*论坛每层楼部分*/
+#section_in_single article { border-top: 1px #ccc solid; background: #f7f7f7; overflow: hidden; }
+/*每层楼中用户信息部分*/
+#section_in_single article div.user { width: 130px; padding: 20px 0; float: left; }
+#section_in_single article div.user figure { text-align: center; cursor: pointer; }
+#section_in_single article div.user figure img { width: 80px; height: 80px; padding: 3px; border: #dcdcdc solid 1px; }
+#section_in_single article div.user figure figcaption { color: #1D53BF; font-size: 15px; }
+#section_in_single article div.user figure:hover figcaption { text-decoration: underline; }
+#section_in_single article div.user div.degree { margin: 9px auto 0 auto; }
+/*每层楼右侧主体，包含说的内容，回复部分及签名档*/
+#section_in_single div.tie_main { width: 608px; margin-left: 130px; padding-bottom: 5px; background: #fff; overflow: hidden; }
+/*内容*/
+#section_in_single div.tie_content { margin: 20px 20px 10px 20px; min-height: 137px; }
+/*举报、回复链接*/
+#section_in_single div.tie_main div.info { font-size: 12px; color: #999; float: right; margin-right: 20px; line-height: 25px; }
+#section_in_single div.tie_main a.a_jubao { color: #999; }
+#section_in_single div.tie_main div.info a.a_huifu { width: 70px; display: block; float: right; text-align: center; background: #fafafa; color: #1D53BF; border-top-left-radius: 5px; border-top-right-radius: 5px; }
+#section_in_single div.tie_main ul li div.reply_time a.a_jubao { float:none;}
+/*回复的列表*/
+.section_in_single ul { width: 560px; float: right; background: #fafafa; margin-right: 20px; margin-bottom: 10px; padding-bottom: 5px; padding-top: 15px; border-radius: 8px; border-top-right-radius: 0; }
+/*回复列表的每一个主题，包括回复者头像、名字和回复内容及举报信息等。*/
+.section_in_single li { margin: 5px 10px 5px 20px; overflow: hidden; border-bottom: 1px #999 dotted; padding-bottom: 5px; }
+/*头像*/
+#section_in_single ul li a { float: left; color: #1D53BF; }
+#section_in_single ul li img { width: 34px; height: 34px; border: 1px solid #D0D0CF; padding: 1px; }
+/*回复内容*/
+#section_in_single .louzhu_super { position: relative; }
+#section_in_single div.louzhu_super div { position: absolute; left: 522px; width: 86px; height: 36px; color: #555555; font-size: 14px; text-align: right; }
+#section_in_single div.louzhu_super div.louzhu { background: url(../images/icon1.png) 50px -530px no-repeat; }
+#section_in_single div.louzhu_super div.louceng { background: none; }
+#section_in_single ul li div.reply_list_content { color: #333; margin: 0px 10px 0px 50px; font-size: 15px; }
+/*回复时间及举报链接等*/
+#section_in_single ul li div.reply_time { font-size: 12px; color: #999; float: right; }
+#section_in_single ul li div.reply_time a.a_huifu { color: #1D53BF; display: inline; float: none; }
+#section_in_single ul li.reply_more { border: none; line-height: 25px; }
+#section_in_single ul li.reply_more a { float:none; margin-right:5px; padding:0 3px; font-size: 12px; }
+#section_in_single ul li.reply_more button { width: 92px; height: 25px; border: none; float: right; background: url(../images/speaktoo.png) no-repeat; color: #555; padding-left: 15px; cursor: pointer; }
+#section_in_single ul li.reply_more button:hover { background-position: left center; }
+#section_in_single ul li.reply_more button:active { background-position: left bottom; }
+#section_in_single ul li.reply_more textarea { width: 530px; height: 50px; margin: 5px 0; border: 1px solid #ccc; }
+#section_in_single ul li.reply_more button.speaktoo_submit { width: 65px; height: 21px; background: url(../images/button1.png) no-repeat; text-align: center; line-height: 21px; padding: 0; color: #fff; }
+#section_in_single ul li.reply_more button.speaktoo_submit:hover { background-position: 0 -39px; }
+#section_in_single ul li.reply_more button.speaktoo_submit:active { background-position: 0 -78px; }
+#section_in_single ul li.reply_more div.speak_too_tip{ float: right; font-size: 13px; height: 21px; padding-right: 30px;color: #E30F06;}
+#section_in_single ul li.reply_more div.pageLink{float:none;}
+#section_in_single ul li.reply_more div.pageLink a.replyCurrentPage{ color:#555; cursor: auto; }
+#section_in_single ul li.reply_more div.pageLink a.replyCurrentPage:hover{ text-decoration:none; }
+/* 锚点上偏移30px */
+a.reply_anchor{ position:relative; top:-75px; display:block; height:0; overflow:hidden; }
+
+a.a_delete{ color:#999;}
+
+/*签名档*/
+#section_in_single div.sign { margin-top: 5px; }
+#section_in_single div.sign header { height: 11px; margin: 0px 20px 10px 20px; background: url(../images/pb_lzl.png) no-repeat; }
+#section_in_single div.sign div.sign_content { overflow:hidden; margin: 0px 30px 10px 30px; font-size: 15px; color: #555; }
+/* footer */
+#section_in_single footer { height: 43px; border-top: 2px solid #ccc; padding: 17px 0 0 25px; }
+#section_in_single footer a { display: block; height: 24px; border: 1px #E7ECF0 solid; padding: 0 6px; float: left; margin-right: 15px; font-size: 15px; }
+#section_in_single footer a:hover { text-decoration: none; background: #E9F1F7; }
+#section_in_single  footer a.currentPage{ height: 26px; line-height: 24px;border:none; color: #555; cursor: auto;}
+#section_in_single  footer a.currentPage:hover{ background:none; 	}
+/* 回复浮动层 */
+#new_reply { position: absolute; display: none; width: 630px; background: #fff; border: 1px solid #ccc; box-shadow: 1px 1px 20px #000; }
+#new_reply article { height: 330px; }
+#new_reply article form { float: left; width: 570px; }
+#new_reply_content { }
+#new_reply label.reply_sign { float: left; margin-top: 10px; }
+#new_reply header { margin: 0; height: 40px; line-height: 40px; padding-left: 15px; background: #efefef; border-bottom: 1px solid #ccc; font-family: "微软雅黑"; font-weight: bold; font-size: 20px; cursor: move; }
+#new_reply_submit { float: right; width: 95px; height: 32px; margin: 10px 1px 0 0; background: url(../images/button1.png) no-repeat; border: none; color: #fff; text-align: center; line-height: 32px; cursor: pointer; }
+#new_reply div.reply_move1 { float: left; height: 359px; width: 30px; cursor: move; }
+#new_reply div.reply_move3 { float: left; width: 330px; height: 45px; margin-left: 10px; padding:10px 0 0 30px; cursor: move; }
+
+
+#section_in_single header span { 
+	width: 67px; 
+	height: 25px; 
+	line-height: 25px; 
+	text-align: center; 
+	font-size: 12px; 
+	display: block; 
+	background: url(../images/lz_only.png) no-repeat; 
+	float: right; 
+	margin-right: 10px; 
+	margin-top: 12px; 
+	cursor: pointer; 
+}
+div.operList, div.moveTo{position: absolute; z-index:10; display:none; text-align:center; font-size:12px;  }
+div.operList ul, div.moveTo ul{ width:67px;margin:0; padding:0; line-height:25px;}
+div.operList ul li, div.moveTo ul li{ height:25px;margin:0; padding:0; background: url(../images/lz_only.png) 0 -25px no-repeat; border:none; }
+div.operList ul li:hover, div.moveTo ul li:hover{ background-position:0 0; }
+div.moveTo {display:none; z-index:10; top:13px; left:67px;}
+div.operList ul li.showMove:hover div{ display:block;}
+/*显示标题浮动层*/
+#title_detail{ width:950px; height:35px; line-height:35px; display:none; padding-left:20px; padding-right:10px; color:#333; background:#fff; box-shadow:1px 3px 10px #333; position:fixed; top:37px; /* text-shadow:1px 1px 1px #333; */ }
+#title_detail span { margin: 5px; }

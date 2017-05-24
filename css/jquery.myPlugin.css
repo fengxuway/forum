@@ -1,0 +1,29 @@
+/*************************$.myPlugin.msgAlert************************/
+.msgAlert_main { position: fixed; z-index: 1200; top: -61px; display: none; height: 24px; padding: 18px 30px; border: 1px solid #aaa; border-top: none; background: #fff; }
+.msgAlert_main p { padding: 2px 0 0 30px; padding-left: 30px; margin: 0; background: url(../images/icon_dialogs.png) 0 -412px no-repeat; line-height: 24px; }
+.msgAlert_main p.msg_ok_Alert { background-position: 0 -244px; }
+.msgAlert_main p.msg_warn_Alert { background-position: 0 -286px; }
+.msgAlert_main p.msg_stop_Alert { background-position: 0 -328px; }
+.msgAlert_main p.msg_error_Alert { background-position: 0 -370px; }
+.msgAlert_main p.msg_info_Alert { background-position: 0 -412px; }
+.msgAlert_main p.msg_confirm_Alert { background-position: 0 -455px; }
+
+/************************$.myPlugin.prettyAlert******************************/
+#pretty_alert { display: none; position: fixed; z-index: 1200; width: 289px; color: #fff; font-family: "微软雅黑"; }
+#pretty_alert_head { height: 20px; background: url(../images/scs_alert.png) 0 -73px no-repeat; }
+#pretty_alert_main { overflow: hidden; background: url(../images/scs_alert.png) right top repeat-y; }
+.pretty_alert_main_side { float: left; width: 37px; height: 37px; margin: 5px 0 0 20px; background: url(../images/scs_alert.png) 100px 100px no-repeat; }
+.ok_Alert { background-position: -1px 0; }
+.error_Alert { background-position: -41px 0; }
+.warn_Alert { background-position: -82px 0; }
+.confirm_Alert { background-position: -123px 0; }
+#pretty_alert_main_content { width: 200px; min-height: 30px; margin-left: 70px; margin-top: 15px; }
+#pretty_alert_buttons { height: 32px; margin: 10px 0 5px 53px; }
+#pretty_alert_buttons button { width: 89px; height: 32px; margin-right: 5px; background: url(../images/scs_alert.png) 0 -39px no-repeat; border: none; cursor: pointer; color: #fff; font-family: "微软雅黑"; font-size: 15px; }
+#pretty_alert_ok { margin-left: 40px; }
+#pretty_alert_buttons button:hover { background-position: -89px -39px; }
+#pretty_alert_buttons button:active { background-position: -178px -39px; }
+#pretty_alert_foot { height: 13px; background: url(../images/scs_alert.png) 0 -93px no-repeat; }
+#pretty_alert_shade { display: none; position: fixed; z-index: 1190; top: 0; left: 0; opacity: 0.3; background: #000; }
+
+/********************************************************/
