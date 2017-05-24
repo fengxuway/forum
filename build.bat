@@ -1,0 +1,3 @@
+@echo off
+echo 正在编译项目，请稍候......
+ant compile

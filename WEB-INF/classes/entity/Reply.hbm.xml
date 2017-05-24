@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 14:45:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.Reply" table="REPLY">
+		<comment>回复表</comment>
+		<id name="reply_id" type="int">
+			<column name="REPLY_ID" />
+			<generator class="native" />
+		</id>
+		<property name="reply_time" type="java.util.Date">
+			<column name="REPLY_TIME" >
+				<comment>回复时间</comment>
+			</column>
+		</property>
+		<property name="reply_content" type="text">
+			<column name="REPLY_CONTENT">
+				<comment>回复内容</comment>
+			</column>
+		</property>
+		<property name="if_reply" type="boolean">
+			<column name="IF_REPLY" >
+				<comment>是否为回复的回复</comment>
+			</column>
+		</property>
+		<property name="anchor" type="java.lang.String">
+			<column name="ANCHOR" >
+				<comment>锚点（可能没用）</comment>
+			</column>
+		</property>
+		<property name="if_delete" type="boolean">
+			<column name="IF_DELETE">
+				<comment>是否被删除</comment>
+			</column>
+		</property>
+		<property name="if_sign" type="boolean">
+			<column name="IF_SIGN" >
+				<comment>是否显示签名档</comment>
+			</column>
+		</property>
+
+		<set name="replys" table="REPLY" inverse="true" lazy="false"
+			cascade="all-delete-orphan" order-by="reply_time asc">
+			<key>
+				<column name="REPLY_SUPERID" />
+			</key>
+			<one-to-many class="entity.Reply" />
+		</set>
+		<many-to-one name="reply_superid" class="entity.Reply" lazy="false">
+			<column name="REPLY_SUPERID">
+				<comment>如果为回复的回复，该列为被回复的主题</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="sub_id" class="entity.Subject" lazy="false">
+			<column name="SUB_ID" >
+				<comment>被回复的主题ID</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="user_id" class="entity.User" lazy="false">
+			<column name="USER_ID" >
+				<comment>作者ID</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

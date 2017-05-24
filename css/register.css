@@ -1,0 +1,60 @@
+@charset "utf-8";
+body { background: url(../images/quc_index_bg.png) repeat-x; }
+header { height: 90px; background: url(../images/quc_top_bg.png) no-repeat; }
+#logo { color: #FB7853; font-size: 28px; font-family: "微软雅黑"; margin: 25px 0 0 25px; float: left; }
+#logo a { display: block; float: left; }
+#logo img { }
+#return_home { color: #7E7E7E; float: right; margin: 55px 20px 0 0; }
+article { border: 1px solid #ccc; height: 450px; }
+article aside { width: 240px; height: 420px; background: #fbfefe; font-family: "微软雅黑"; float: left; padding-top: 30px; }
+article aside div { width: 240px; height: 63px; cursor: pointer; color: #676767; line-height: 63px; text-align: center; font-size: 24px; position: relative; z-index: 100; }
+.current { background: url(../images/reg_bg.png) no-repeat; color: #fb7853; }
+#main,#alter_pswd_tip, #main2,#pswd_reset, #main3,#pswd_back, #main_login, #main4, #main5 { width: 750px; height: 430px; border-left: 1px solid #ccc; margin-left: 227px; background: #fff; position: relative; padding-top: 20px; }
+article div header { width: 493px; height: 23px; margin: 0px auto; background: url(../images/register_header.png) no-repeat; }
+div form table { line-height: 44px; color: #676767; font-size: 18px; margin: 40px 0 0 100px; }
+div form table td.selectForm { height: 75px; font-size: 15px; }
+div form table td.selectForm div.select-main { font-size: 13px; }
+div.main form table td.label { width: 100px; }
+div.main form table td.tip { width: 250px; font-size: 12px; padding-left: 5px; }
+div.main form table td.tip small { display: none; font-size: 12px; }
+div.main form table td.tip span { display: none; float: left; width: 17px; height: 15px; margin: 16px 10px 14px 0; }
+div.main td.tip span.tishi { background: url(../images/register_sucai.png) -483px 0 no-repeat; }
+div.main td.tip span.zhengque { background: url(../images/register_sucai.png) -483px -15px no-repeat; }
+div.main td.tip span.jinggao { background: url(../images/register_sucai.png) -483px -30px no-repeat; }
+div.main td.tip span.ajaxLoading { background: url(../images/wait.gif) no-repeat; }
+form table input { width: 208px; height: 44px; font-family: "courier new"; border: none; padding: 0 15px; font-size: 16px; background: url(../images/register_sucai.png) no-repeat; }
+#next,#back_next { height: 45px; width: 144px; margin: 40px 0 0 240px; border: none; background: url(../images/register_sucai.png) -235px -140px no-repeat; cursor: pointer; }
+#getCheckWord{ display:block; width:120px; height:38px; border:none; background: url(../images/register_sucai.png) -240px top no-repeat; cursor: pointer;}
+#getCheckWord:hover{ background-position: -240px -40px;}
+#pswd_save{ width:120px; height:38px; background:url(../images/register_sucai.png) right -180px no-repeat; border:none; cursor:pointer; }
+#pswd_save:hover{ background-position:right -218px;}
+#next:hover, #back_next:hover { background-position: -235px -185px; }
+#register_msg { color: #e3030f; margin: 20px 0 0 191px; width: 222px; }
+#passwordStrengthDiv { display: none; float: right; margin: 20px 20px 0 0; }
+#main2 header { background-position: 0 -23px; }
+#main3 header { background-position: 0 -46px; }
+#main4 header { background-position: 0 -69px; }
+#main5 header { background-position: 0 -92px; }
+div.helloImg { width: 110px; height: 120px; background: url(../images/register_sucai.png) right bottom no-repeat; margin: 30px auto; }
+div.yihanImg { width: 120px; height: 120px; background: url(../images/register_sucai.png) -380px -260px no-repeat; margin: 30px auto; }
+div.msg { font-size: 24px; font-family: "黑体"; text-align: center; }
+div.msg2 { font-size: 15px; color: #333; text-align: center; }
+#mylinks { text-align: center; line-height: 30px; margin-top: 20px; }
+#main_login form table { margin: 60px 0 0 150px; }
+#main_login button { float: left; width: 232px; height: 45px; background: url(../images/register_sucai.png) 0 -230px no-repeat; border: none; cursor: pointer; }
+#main_login button:hover { background-position: 0 -275px; }
+#login_shade { position: absolute; display: none; width: 232px; height: 45px; background: #000; opacity: 0.3; }
+#register_shade { position: absolute; display: none; width: 386px; height: 45px; }
+#register_shade_left { float: left; height: 45px; width: 144px; background: #000; opacity: 0.3; }
+#register_shade_right { float: right; width: 232px; height: 45px; background: #000; opacity: 0.3; }
+#register_submit_content { width: 386px; height: 45px; margin: 20px 0 0 52px; }
+#previous { float: left; height: 45px; width: 144px; border: none; background: url(../images/register_sucai.png) -235px -230px no-repeat; cursor: pointer; }
+#previous:hover { background-position: -235px -275px; }
+#register_shenqing { float: left; width: 232px; height: 45px; margin-left: 10px; background: url(../images/register_sucai.png) 0 -140px no-repeat; border: none; cursor: pointer; }
+#register_shenqing:hover { background-position: 0 -185px; }
+#login_submit_content { position: relative; margin: 20px 0 0 2px; }
+td.sexForm { padding-left: 45px; }
+td.sexForm label input { width: 15px; height: 15px; }
+#main2 td.selectForm { line-height: 25px; }
+#main2 select { /* background:#CFF1F1; border: 1px solid #BAE0E0; */ }
+footer#footer { height: 30px; line-height: 30px; background: #f1f1f1; font-size: 15px; text-align: center; font-weight: 100; margin-top: 10px; color: #555; }

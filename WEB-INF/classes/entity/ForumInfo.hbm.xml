@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 14:45:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.ForumInfo" table="FORUM_INFO">
+		<comment>论坛信息</comment>
+		<id name="forum_id" type="int">
+			<column name="FORUM_ID" />
+			<generator class="native" />
+		</id>
+		<property name="sign" type="java.lang.String">
+			<column name="SIGN" >
+				<comment>论坛签名</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

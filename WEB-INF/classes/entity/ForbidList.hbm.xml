@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 16:25:10 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.ForbidList" table="FORBID_LIST">
+		<comment>封禁表，保存正在被封禁中的用户，以及封禁理由等</comment>
+		<id name="forbid_id" type="int">
+			<column name="FORBID_ID" />
+			<generator class="native" />
+		</id>
+		<many-to-one name="user_id" class="entity.User" lazy="false"
+			unique="true">
+			<column name="USER_ID" >
+				<comment>被封禁的用户ID</comment>
+			</column>
+		</many-to-one>
+		<property name="days" type="int">
+			<column name="DAYS" >
+				<comment>封禁天数</comment>
+			</column>
+		</property>
+		<property name="reason" type="java.lang.String">
+			<column name="REASON" >
+				<comment>封禁理由</comment>
+			</column>
+		</property>
+		<many-to-one name="operate_id" class="entity.User" lazy="false">
+			<column name="operate_ID" >
+				<comment>操作人</comment>
+			</column>
+		</many-to-one>
+		<property name="operate_time" type="java.util.Date">
+			<column name="OPERATE_TIME" >
+				<comment>操作时间</comment>
+			</column>
+		</property>
+		<property name="unforbid_time" type="long">
+			<column name="UNFORBID_TIME" >
+				<comment>解封禁时间</comment>
+			</column>
+		</property>
+	</class>
+
+</hibernate-mapping>

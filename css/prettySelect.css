@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+.select { font-family: "微软雅黑"; height: 25px; line-height: 25px; text-align: center; cursor: pointer; border: 1px #aaa solid; display: inline-block; border-radius: 5px; }
+.select span.jiantou { background: url(../images/ui-icons_ffffff_256x240.png) -66px -10px  no-repeat; width: 10px; float: right; margin-right: 10px; }
+.select-head { background: url(../images/select-shen.png) repeat-x center center; color: #fff; }
+.select-head:hover { background: url(../images/select-qian.png) repeat-x center center; }
+.select-head-click { background: #F0EFEA; color: #000; }
+.select-head-click span.jiantou { background: url(../images/ui-icons_808080_256x240.png) -66px -10px  no-repeat; }
+.select-main { z-index: 1000; font-family: "微软雅黑"; position: absolute; background: url(../images/select-bai.png) repeat-x center center; overflow: auto; border: 1px #aaa solid; text-align: left; border-radius: 5px; padding-bottom: 5px; padding-top: 5px; }
+.select-main ul { margin: 0 5px; }
+.select-main ul li { line-height: 25px; border-radius: 5px; padding-left: 15px; }
+.select-main ul li:hover { background: url(../images/select-qian.png) repeat-x center center; cursor: pointer; }

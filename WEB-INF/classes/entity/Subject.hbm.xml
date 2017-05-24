@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 15:51:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.Subject" table="SUBJECT">
+		<comment>主题表</comment>
+		<id name="sub_id" type="int">
+			<column name="SUB_ID" />
+			<generator class="native" />
+		</id>
+		<property name="sub_title" type="java.lang.String">
+			<column name="SUB_TITLE" >
+				<comment>主题标题</comment>
+			</column>
+		</property>
+		<property name="sub_content" type="text">
+			<column name="SUB_CONTENT" >
+				<comment>主题内容</comment>
+			</column>
+		</property>
+		<property name="sub_time" type="java.util.Date">
+			<column name="SUB_TIME" >
+				<comment>发表时间</comment>
+			</column>
+		</property>
+		<property name="reply_num" type="int">
+			<column name="REPLY_NUM" >
+				<comment>回复数</comment>
+			</column>
+		</property>
+		<property name="last_reply_time" type="java.util.Date">
+			<column name="LAST_REPLY_TIME" >
+				<comment>最后回复时间</comment>
+			</column>
+		</property>
+		<property name="if_perfect" type="boolean">
+			<column name="IF_PERFECT" >
+				<comment>是否为精品</comment>
+			</column>
+		</property>
+		<property name="if_delete" type="boolean">
+			<column name="IF_DELETE" >
+				<comment>是否被删除</comment>
+			</column>
+		</property>
+		<property name="if_top" type="boolean">
+			<column name="IF_TOP" >
+				<comment>是否置顶</comment>
+			</column>
+		</property>
+		<property name="if_sign" type="boolean">
+			<column name="IF_SIGN" >
+				<comment>是否显示签名档</comment>	
+			</column>
+		</property>
+		<many-to-one name="author" class="entity.User" lazy="false">
+			<column name="AUTHOR" >
+				<comment>主题作者</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="last_reply" class="entity.Reply" lazy="false">
+			<column name="LAST_REPLY">
+				<comment>最后回复的主题</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="cate_id" class="entity.Category" lazy="false">
+			<column name="CATE_ID">
+				<comment>从属于分类</comment>
+			</column>
+		</many-to-one>
+		<set name="replys" table="REPLY" inverse="true" lazy="true" cascade="all-delete-orphan">
+			<key>
+				<column name="SUB_ID" />
+			</key>
+			<one-to-many class="entity.Reply" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 15:51:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.Category" table="CATEGORY">
+		<comment>版块分类表</comment>
+		<id name="cate_id" type="int">
+			<column name="CATE_ID" />
+			<generator class="native" />
+		</id>
+		<property name="cate_name" type="java.lang.String">
+			<column name="CATE_NAME">
+				<comment>版块名称</comment>
+			</column>
+		</property>
+		<property name="subject_num" type="int">
+			<column name="SUBJECT_NUM" >
+				<comment>主题数量</comment>
+			</column>
+		</property>
+		<property name="reply_num" type="int">
+			<column name="REPLY_NUM" >
+				<comment>贴子数量，即回复帖数量</comment>
+			</column>
+		</property>
+		<property name="cate_info" type="java.lang.String">
+			<column name="CATE_INFO" >
+				<comment>版块信息简介</comment>
+			</column>
+		</property>
+		<property name="last_time" type="java.util.Date">
+			<column name="LAST_TIME">
+				<comment>最后发贴时间</comment>
+			</column>
+		</property>
+		<many-to-one name="cate_admin" class="entity.User" lazy="false">
+			<column name="CATE_ADMIN">
+				<comment>版主ID</comment>
+			</column>
+		</many-to-one>
+		<set name="subjects" table="SUBJECT" inverse="true" lazy="true"
+			access="field" cascade="all-delete-orphan">
+			<key>
+				<column name="CATE_ID" />
+			</key>
+			<one-to-many class="entity.Subject" />
+		</set>
+	</class>
+</hibernate-mapping>

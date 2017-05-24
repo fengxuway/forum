@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* 
+颜色列表
+每个主题header部分
+border:#FFC973
+background:#FEFFDB
+表格头部background:#D1E4F4
+a链接字体颜色：#1D53BF
+ */
+
+/*header部分*/
+#header { height: 40px; }
+#logo { float: left; margin-right: 10px; }
+#title { float: left; color: #FB7853; font-size: 26px; font-family: "微软雅黑"; }
+#links { float: right; margin-right: 50px; margin-top: 15px; }
+/* nav导航部分 */
+nav { height: 31px; margin: 20px 0 0 0; background: url(../images/icon1.png) 0 -690px repeat-x; }
+nav ul { overflow: hidden; margin-left: 10px; font-family: "微软雅黑"; }
+nav ul li { float: left; height: 21px; padding: 0 15px 5px 15px; margin: 5px 8px 0 8px; color: #fff; line-height: 20px; cursor: pointer; }
+nav ul li.current { padding: 2px 14px 3px 14px; border-left: 1px solid #2D6198; border-right: 1px solid #2D6198; background: url(../images/icon1.png) 0 -720px repeat-x; color: #000; cursor: default; }
+nav ul li a{ color:#fff; text-decoration: none;}
+nav ul li a:hover{ text-decoration: none;}
+nav ul li.current a{ color:#000; text-decoration: none;}
+/* article主要部分 */
+article { display: none; overflow: hidden; padding-bottom: 20px; background: #fff; color: #555; height: 460px; }
+#main0 { display: block; }
+article header { float: left; margin: 20px 0 20px 40px; padding: 0 40px; height: 40px; border: 1px solid #FFC973; background: #FEFFDB; color: #333; line-height: 40px; font-size: 20px; font-family: "微软雅黑"; }
+article table { width: 900px; margin: 0 auto; padding-bottom: 20px; border-bottom: 1px solid #888; border-collapse: collapse; line-height: 30px; text-align: center; font-size: 14px; }
+article table th { height: 40px; background: #D1E4F4; }
+article table td { height: 40px; border-top: 1px dotted #aaa; }
+article table td span.degree_id { display: block; width: 22px; height: 22px; margin: 0 auto; background: url(../images/s1.gif) no-repeat; color: #B65E00; text-align: center; line-height: 22px; }
+a { color: #1D53BF; }
+article div.pagin { overflow: hidden; margin: 20px 0 10px 90px; }
+article div.pagin ul li { float: left; }
+article div.pagin ul li a { display: block; float: left; height: 24px; margin-right: 15px; padding: 0 6px; border: 1px solid #E7ECF0; font-size: 15px; color: #1D53BF; }
+article div.pagin ul li a:hover { background: #e9f1f7; text-decoration: none; }
+article div.pagin ul li a.a_current { padding: 1px 7px; border: none; color: #555; cursor: default; }
+article div.pagin ul li a.a_current:hover { background: none; }
+article p.explain { float: left; width: 600px; margin: 40px 0 0 20px; font-size: 15px; }
+#quit_admin { }
+#admin_list { clear: both; overflow: hidden; margin: 0 0 0 40px; }
+#admin_list ul { }
+#admin_list ul li { float: left; margin-right: 50px; }
+#admin_list ul li a { display: block; text-align: center; }
+#admin_list img { width: 80px; height: 80px; padding: 3px; border: 2px solid #CCCCCC; }
+div.search_user { margin: 35px 0 0 250px; }
+div.search_user input.username { width: 150px; height: 22px; padding: 0 5px; border: 1px solid #ccc; /* 获取焦点颜色#8BDB57 */ }
+#main2 table td, #main3 table td { height: 60px; }
+table td a.user_head_img { display: block; height: 52px; }
+article table td img { width: 48px; height: 48px; padding: 1px; border: 1px solid #ccc; }
+p.forbid, p.unforbid { width: 62px; height: 20px; margin: 0 auto; background: url(../images/icon1.png) no-repeat; cursor: pointer; }
+#main2 p.forbid { background-position: 0 -770px; }
+#main2 p.forbid:hover { background-position: 0 -750px; }
+#main2 p.unforbid { background-position: 0 -790px; }
+#main3 p.unforbid { background-position: 0 -830px; }
+#main2 p.unforbid:hover, #main3 p.unforbid:hover { background-position: 0 -810px; }
+div.select_all_div { overflow: hidden; width: 875px; height: 40px; margin: 0 auto; padding-left: 25px; background: #D1E4F4; line-height: 40px; }
+#main4_nav { height: auto; margin: 20px 0 0 39px; background: none; }
+#main4_nav ul { overflow: hidden; border-left: 1px solid #ccc; text-align: center; line-height: 35px; font-family: "微软雅黑"; }
+#main4_nav ul li { position: relative; float: left; width: 110px; height: 35px; border: 1px solid #ccc; border-left: none; background: #fafafa; cursor: pointer; }
+#main4_nav ul li.main4_current { z-index: 30; border-bottom: none; border-top: 2px solid #6699C9; background: #fff; cursor: auto; }
+#main4 div.main4_content { position: relative; top: -1px; width: 860px; height: 350px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; }
+#main4 div.main4_content table { width: 860px; }
+#main4 div.main4_content iframe{width:100%; margin:0;}
+
+/******************************Iframe部分***********************************/
+iframe{ overflow:hidden; width:900px; height:420px; margin:20px 40px 0;}

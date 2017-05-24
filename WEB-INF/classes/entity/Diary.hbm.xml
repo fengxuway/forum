@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-2-12 14:45:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="entity.Diary" table="DIARY">
+		<comment>系统日志，记录用户和管理员的所有操作</comment>
+		<id name="diary_id" type="int">
+			<column name="DIARY_ID" />
+			<generator class="native" />
+		</id>
+		<property name="type" type="int">
+			<column name="TYPE" >
+				<comment>日志分类</comment>
+			</column>
+		</property>
+		<property name="time" type="java.util.Date">
+			<column name="TIME" >
+				<comment>日志时间</comment>
+			</column>
+		</property>
+		<property name="operate" type="int">
+			<column name="OPERATE" >
+				<comment>操作类型</comment>
+			</column>
+		</property>
+		<property name="operate_id" type="string">
+			<column name="OPERATE_ID" >
+				<comment>操作人</comment>
+			</column>
+		</property>
+		<property name="author_id" type="string">
+			<column name="AUTHOR_ID" >
+				<comment>被操作人</comment>
+			</column>
+		</property>
+		<property name="title" type="java.lang.String">
+			<column name="TITLE" >
+				<comment>事件</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>
